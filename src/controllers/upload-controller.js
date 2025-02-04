@@ -7,7 +7,7 @@ const uploadFileToS3 = async (file) => {
   const fileStream = fs.createReadStream(file.path);
 
   const uploadParams = {
-    Bucket: process.env.S3_BUCKET_NAME,
+    Bucket: env.S3_BUCKET_NAME,
     Key: file.originalname,
     Body: fileStream,
   };

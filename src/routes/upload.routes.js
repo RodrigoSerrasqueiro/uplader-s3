@@ -13,13 +13,11 @@ router.post("/upload", upload.single("file"), async (req, res) => {
   const result = await uploadFileToS3(req.file);
 
   if (result.success) {
-    res
-      .status(200)
-      .json({
-        message: "Arquivo enviado com sucesso!",
-        data: result.data,
-        fileUrl: result.fileUrl,
-      });
+    res.status(200).json({
+      message: "Arquivo enviado com sucesso!",
+      data: result.data,
+      fileUrl: result.fileUrl,
+    });
   } else {
     res
       .status(500)
